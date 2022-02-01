@@ -1,0 +1,53 @@
+{
+	"diagnostic.checkCurrentLine": true,
+	"python.linting.enabled": true,
+	"python.linting.pylintEnabled": true,
+	"python.linting.pylintArgs": [
+		"--load-plugins=pylint_django", "--errors-only" 
+	],
+
+	"java.trace.server": "verbose",
+
+	// "java.home": "/Users/jasper/.sdkman/candidates/java/21.1.0.r11-grl",
+	// "java.configuration.runtimes": [
+	// 	  /* { */
+	// 	  /*   "name": "JavaSE-1.8", */
+	// 	  /*   "path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home" */
+	// 	  /* }, */
+	// 	  /* { */
+	// 	  /*   "name": "JavaSE-11", */
+	// 	  /*   "path": "/Library/Java/JavaVirtualMachines/jdk-11.0.8.jdk/Contents/Home", */
+	// 	  /*   "default": true */
+	// 	  /* }, */
+	// 	  {
+	// 	    "name": "JavaSE-11",
+	// 	    "path": "/Users/jasper/.sdkman/candidates/java/21.1.0.r11-grl",
+	// 	    "default": true
+	// 	  }
+	// ],
+
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    },
+    "clangd.path": "/Users/jasper/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+}
