@@ -7,6 +7,9 @@
 " let g:fzf_preview_window = []
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
+" Default command for FZF Files search
+let $FZF_DEFAULT_COMMAND='rg --files'
+
 " RipGrep search IN file
 command! -bang -nargs=* Rg
 	\ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,

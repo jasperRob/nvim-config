@@ -53,6 +53,10 @@ nnoremap <leader>t :split term://zsh<CR>
 tnoremap <Tab> <Tab>
 " tnoremap <C-i> <C-\><C-n>
 
+" Command Mode Remaps
+cnoremap <C-b> <left>
+cnoremap <C-f> <right>
+
 
 " ########## VIMSPECTOR ##########
 
@@ -101,3 +105,18 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
+
+
+" ########## LSP Mappings ##########
+
+" nnoremap cro <Cmd>lua require'jdtls'.organize_imports()<CR>
+" nnoremap crv <Cmd>lua require('jdtls').extract_variable()<CR>
+" vnoremap crv <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
+" nnoremap crc <Cmd>lua require('jdtls').extract_constant()<CR>
+" vnoremap crc <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
+" vnoremap crm <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
+
+" nnoremap <space>a <Esc><Cmd>lua vim.lsp.buf.code_action()<CR>
+" nnoremap gd <Esc><Cmd>lua vim.lsp.buf.definition()<CR>
+
+" ################################

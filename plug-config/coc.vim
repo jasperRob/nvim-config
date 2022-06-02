@@ -144,7 +144,7 @@ set statusline^=%{coc#status()} " %{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -160,4 +160,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Open Fix menu
-nnoremap <silent><nowait> <leader>f  :<C-u>CocFix<CR>
+nnoremap <silent><nowait> <space>f  :<C-u>CocFix<CR>
+" Open Action menu
+nnoremap <silent><nowait> <space>a  :<C-u>CocAction<CR>

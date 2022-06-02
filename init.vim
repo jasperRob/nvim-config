@@ -1,12 +1,20 @@
 call plug#begin()
 
 "  ########## Plugins currently in use ##########
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'mfussenegger/nvim-jdtls'
-Plug 'tpope/vim-eunuch'
+"
+"  LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
+Plug 'mfussenegger/nvim-lsp-compl'
+"
+"  Navigation
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'puremourning/vimspector'
+"
+"  Quality Of Life
+Plug 'tpope/vim-eunuch'
 Plug 'szw/vim-maximizer'
 Plug 'jesseleite/vim-agriculture'
 Plug 'tpope/vim-fugitive'
@@ -19,17 +27,17 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'hoob3rt/lualine.nvim'
 
-"  ########## Colour Themes ##########
+"   Colour Themes
 Plug 'tomasiser/vim-code-dark'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'ErichDonGubler/vim-sublime-monokai'
 Plug 'crusoexia/vim-monokai'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'junegunn/seoul256.vim'
 
 "  ########## Plugins no longer in use ##########
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'puremourning/vimspector'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'frazrepo/vim-rainbow'
 
 call plug#end()
@@ -37,7 +45,7 @@ call plug#end()
 
 " ########## Sourcing other configs ##########
 
-source ~/.config/nvim/plug-config/coc.vim
+" source ~/.config/nvim/plug-config/coc.vim
 source ~/.config/nvim/plug-config/fzf.vim
 source ~/.config/nvim/plug-config/nerdtree.vim
 source ~/.config/nvim/plug-config/rainbow_parentheses.vim

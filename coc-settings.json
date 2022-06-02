@@ -7,8 +7,7 @@
 	],
 
 	"java.trace.server": "verbose",
-
-	// "java.home": "/Users/jasper/.sdkman/candidates/java/21.1.0.r11-grl",
+	"java.home": "/Users/jasper/.sdkman/candidates/java/current",
 	// "java.configuration.runtimes": [
 	// 	  /* { */
 	// 	  /*   "name": "JavaSE-1.8", */

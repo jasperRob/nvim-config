@@ -10,9 +10,10 @@ set wildmenu
 set number relativenumber
 
 syntax on
-colorscheme monokai
+colorscheme nightfox
 set termguicolors
 "
+" colorscheme monokai
 " colorscheme sublimemonokai
 " colorscheme codedark
 " colorscheme vim-monokai-tasty
@@ -33,3 +34,4 @@ set shiftwidth=4
 
 autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType xml setlocal shiftwidth=2 softtabstop=2 expandtab
