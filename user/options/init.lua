@@ -31,4 +31,4 @@ vim.o.syntax = 'on'
 -- wo.wrap = true
 
 -- set colorscheme
-vim.g.colors_name = 'nightfox'
+vim.g.colors_name = 'monokai'
