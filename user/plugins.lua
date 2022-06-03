@@ -1,12 +1,5 @@
---- install packer if unable to load
-if not pcall(require, 'packer') then
-	local packer_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-	vim.cmd('!git clone https://github.com/wbthomason/packer.nvim ' .. packer_path)
-	print 'packer.vim installed ... please restart neovim'
-end
-
 -- init plugin manager
-return require('packer').startup(function(use)
+require('packer').startup(function()
 
 	-- packer can manage itself
 	use 'wbthomason/packer.nvim'
@@ -36,13 +29,21 @@ return require('packer').startup(function(use)
 	}
 
 	-- fzf native (telescope extension)
+	-- use {
+	-- 	'nvim-telescope/telescope-fzf-native.nvim',
+	-- 	run = 'make',
+	-- }
 	use {
-		'nvim-telescope/telescope-fzf-native.nvim',
-		run = 'make',
+		'nvim-telescope/telescope.nvim',
+		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+	-- IDE
+	use 'nvim-treesitter/nvim-treesitter'
+
 	---- lsp
-	use 'neovim/nvim-lspconfig'
+	use 'williamboman/nvim-lsp-installer'
+	--use 'neovim/nvim-lspconfig'
 
 	-- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	-- Plug 'junegunn/fzf.vim'
@@ -89,13 +90,13 @@ return require('packer').startup(function(use)
 
 	---- colorschemes
 	-- main colorscheme
-	use 'bluz71/vim-nightfly-guicolors'
-	use 'tomasiser/vim-code-dark'
+	--use 'bluz71/vim-nightfly-guicolors'
+	--use 'tomasiser/vim-code-dark'
 	use 'patstockwell/vim-monokai-tasty'
 	use 'ErichDonGubler/vim-sublime-monokai'
-	use 'crusoexia/vim-monokai'
-	use 'EdenEast/nightfox.nvim'
-	use 'junegunn/seoul256.vim'
+	--use 'crusoexia/vim-monokai'
+	--use 'EdenEast/nightfox.nvim'
+	--use 'junegunn/seoul256.vim'
 
 	-- vimdiff colorscheme
 	-- use 'nanotech/jellybeans.vim'

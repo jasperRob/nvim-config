@@ -1,7 +1,11 @@
 ----
 -- neovim config init
 ----
-require('user.options.init')
-require('user.plugins.init')
-require('user.lsp.init')
-require('user.keymaps.init')
+require('user.plugins')
+require('user.options')
+require('user.keymaps')
+
+require('user.nerdtree')
+require('user.treesitter')
+
+require('user.lsp')

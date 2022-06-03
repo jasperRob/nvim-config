@@ -89,15 +89,15 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
-  ["nightfox.nvim"] = {
+  ["nvim-lsp-installer"] = {
     loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
-  ["nvim-lspconfig"] = {
+  ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -109,35 +109,20 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["seoul256.vim"] = {
+  ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/seoul256.vim",
-    url = "https://github.com/junegunn/seoul256.vim"
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["telescope-fzf-native.nvim"] = {
+  ["telescope.nvim"] = {
     loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
-  ["vim-code-dark"] = {
-    loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-code-dark",
-    url = "https://github.com/tomasiser/vim-code-dark"
-  },
-  ["vim-monokai"] = {
-    loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-monokai",
-    url = "https://github.com/crusoexia/vim-monokai"
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-monokai-tasty"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-monokai-tasty",
     url = "https://github.com/patstockwell/vim-monokai-tasty"
-  },
-  ["vim-nightfly-guicolors"] = {
-    loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
-    url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
   ["vim-sublime-monokai"] = {
     loaded = true,
