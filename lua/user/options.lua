@@ -5,6 +5,7 @@ vim.g.mapleader = ','
 --
 -- main neovim settings
 vim.wo.relativenumber = true
+vim.opt.swapfile = false
 
 -- indentation settings
 --vim.bo.autoindent = true
@@ -17,4 +18,4 @@ vim.bo.shiftwidth = 4
 vim.bo.tabstop = 4
 
 -- set colorscheme
-vim.g.colors_name = 'monokai'
+vim.g.colors_name = 'molokai'

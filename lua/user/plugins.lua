@@ -42,8 +42,8 @@ require('packer').startup(function()
 	use 'nvim-treesitter/nvim-treesitter'
 
 	---- lsp
+	use 'neovim/nvim-lspconfig'
 	use 'williamboman/nvim-lsp-installer'
-	--use 'neovim/nvim-lspconfig'
 
 	-- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	-- Plug 'junegunn/fzf.vim'
