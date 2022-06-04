@@ -11,3 +11,14 @@ open vim and run:
 ```
 :PackerSync
 ```
+
+
+to install treesitter support, run:
+```
+:TSInstall <languag>
+```
+
+to install language servers, run:
+```
+:LSPInstall <language>
+```
