@@ -79,16 +79,14 @@ require('packer').startup(function()
 	-- use 'lukas-reineke/indent-blankline.nvim'
 
 	---- helpers / misc plugins
-	-- use 'jiangmiao/auto-pairs'
-	-- use 'tpope/vim-commentary'
-	-- use 'tpope/vim-surround'
+	use 'jiangmiao/auto-pairs'
+	use 'tpope/vim-commentary'
+	use 'tpope/vim-surround'
 
 	-- Plug 'tpope/vim-eunuch'
 	-- Plug 'szw/vim-maximizer'
 	-- Plug 'jesseleite/vim-agriculture'
 	-- Plug 'tpope/vim-fugitive'
-	-- Plug 'tpope/vim-surround'
-	-- Plug 'tpope/vim-commentary'
 	-- Plug 'uiiaoo/java-syntax.vim'
 	-- Plug 'pangloss/vim-javascript'
 	-- Plug 'sheerun/vim-polyglot'

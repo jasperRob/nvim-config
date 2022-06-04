@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -169,6 +174,11 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-code-dark",
     url = "https://github.com/tomasiser/vim-code-dark"
   },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
   ["vim-monokai"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-monokai",
@@ -188,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-sublime-monokai",
     url = "https://github.com/ErichDonGubler/vim-sublime-monokai"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
