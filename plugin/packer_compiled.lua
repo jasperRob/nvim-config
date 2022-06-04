@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["jellybeans.vim"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
+    url = "https://github.com/nanotech/jellybeans.vim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -88,6 +93,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -119,15 +129,35 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["seoul256.vim"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/seoul256.vim",
+    url = "https://github.com/junegunn/seoul256.vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-code-dark"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-code-dark",
+    url = "https://github.com/tomasiser/vim-code-dark"
+  },
+  ["vim-monokai"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-monokai",
+    url = "https://github.com/crusoexia/vim-monokai"
+  },
   ["vim-monokai-tasty"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-monokai-tasty",
     url = "https://github.com/patstockwell/vim-monokai-tasty"
+  },
+  ["vim-nightfly-guicolors"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
+    url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
   ["vim-sublime-monokai"] = {
     loaded = true,

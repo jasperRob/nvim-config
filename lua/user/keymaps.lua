@@ -8,15 +8,6 @@ local function nkeymap(key, map)
 	keymap('n', key, map, opts)
 end
 
--- nerdtree
--- keymap('n', '<C-n>', ':call g:ToggleNERDTreeBar()', opts)
-keymap('n', '<C-n>', ':NERDTreeToggle<CR>', opts)
-
--- lsp
-keymap('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>', opts)
-keymap('n', '<c-]>', ':lua vim.lsp.buf.definition()<CR>', opts)
-keymap('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', opts)
-
 -- general
 keymap('n', '<leader>q', ':q<CR>', opts)
 keymap('n', '<leader>w', ':w<CR>', opts)
@@ -48,6 +39,12 @@ keymap('i', '<Down>', '<Nop>', opts)
 keymap('i', '<Left>', '<Nop>', opts)
 keymap('i', '<Right>', '<Nop>', opts)
 
+-- nerdtree
+keymap('n', '<C-n>', ':NERDTreeToggle<CR>', opts)
+
+-- telescope
+keymap('n', '<C-p>', ':Telescope find_files<CR>', opts)
+keymap('n', '<C-f>', ':Telescope live_grep<CR>', opts)
 
 -- lsp
 nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')
@@ -59,6 +56,6 @@ nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
 nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
 nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
 nkeymap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
-nkeymap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
-nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
+nkeymap('<space>a', ':lua vim.lsp.buf.code_action()<cr>')
+nkeymap('<space>r', ':lua vim.lsp.buf.rename()<cr>')
 

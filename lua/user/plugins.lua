@@ -44,10 +44,9 @@ require('packer').startup(function()
 	---- lsp
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/nvim-lsp-installer'
-
-	-- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	-- Plug 'junegunn/fzf.vim'
 	-- Plug 'puremourning/vimspector'
+
+
 	-- "
 	-- "  Quality Of Life
 	-- Plug 'tpope/vim-eunuch'
@@ -62,7 +61,6 @@ require('packer').startup(function()
 	-- Plug 'junegunn/rainbow_parentheses.vim'
 	-- Plug 'ryanoasis/vim-devicons'
 	-- Plug 'hoob3rt/lualine.nvim'
-
 
 	---- completion
 	-- use {
@@ -90,14 +88,14 @@ require('packer').startup(function()
 
 	---- colorschemes
 	-- main colorscheme
-	--use 'bluz71/vim-nightfly-guicolors'
-	--use 'tomasiser/vim-code-dark'
-	use 'patstockwell/vim-monokai-tasty'
+	use 'bluz71/vim-nightfly-guicolors'
 	use 'ErichDonGubler/vim-sublime-monokai'
-	--use 'crusoexia/vim-monokai'
-	--use 'EdenEast/nightfox.nvim'
-	--use 'junegunn/seoul256.vim'
+	use 'tomasiser/vim-code-dark'
+	use 'patstockwell/vim-monokai-tasty'
+	use 'crusoexia/vim-monokai'
+	use 'EdenEast/nightfox.nvim'
+	use 'junegunn/seoul256.vim'
 
 	-- vimdiff colorscheme
-	-- use 'nanotech/jellybeans.vim'
+	use 'nanotech/jellybeans.vim'
 end)
