@@ -9,3 +9,4 @@ require('user.nerdtree')
 require('user.treesitter')
 
 require('user.lsp')
+require('user.completion')

@@ -46,32 +46,29 @@ require('packer').startup(function()
 	use 'williamboman/nvim-lsp-installer'
 	-- Plug 'puremourning/vimspector'
 
-
-	-- "
-	-- "  Quality Of Life
-	-- Plug 'tpope/vim-eunuch'
-	-- Plug 'szw/vim-maximizer'
-	-- Plug 'jesseleite/vim-agriculture'
-	-- Plug 'tpope/vim-fugitive'
-	-- Plug 'tpope/vim-surround'
-	-- Plug 'tpope/vim-commentary'
-	-- Plug 'uiiaoo/java-syntax.vim'
-	-- Plug 'pangloss/vim-javascript'
-	-- Plug 'sheerun/vim-polyglot'
-	-- Plug 'junegunn/rainbow_parentheses.vim'
-	-- Plug 'ryanoasis/vim-devicons'
-	-- Plug 'hoob3rt/lualine.nvim'
-
 	---- completion
-	-- use {
-	--   'hrsh7th/nvim-cmp',
-	--   requires = {
-	--     'hrsh7th/cmp-buffer',
-	--     'hrsh7th/cmp-path',
-	--     'hrsh7th/cmp-nvim-lua',
-	--     'hrsh7th/cmp-nvim-lsp',
-	--   },
-	-- }
+	use {
+	  'hrsh7th/nvim-cmp',
+	  requires = {
+	    'hrsh7th/cmp-buffer',
+	    'hrsh7th/cmp-path',
+	    'hrsh7th/cmp-nvim-lua',
+	    'hrsh7th/cmp-nvim-lsp',
+	  },
+	}
+
+	---- colorschemes
+	-- main colorscheme
+	use 'bluz71/vim-nightfly-guicolors'
+	use 'ErichDonGubler/vim-sublime-monokai'
+	use 'tomasiser/vim-code-dark'
+	use 'patstockwell/vim-monokai-tasty'
+	use 'crusoexia/vim-monokai'
+	use 'EdenEast/nightfox.nvim'
+	use 'junegunn/seoul256.vim'
+
+	-- vimdiff colorscheme
+	use 'nanotech/jellybeans.vim'
 
 	---- snippets
 	-- use 'rafamadriz/friendly-snippets'
@@ -86,16 +83,17 @@ require('packer').startup(function()
 	-- use 'tpope/vim-commentary'
 	-- use 'tpope/vim-surround'
 
-	---- colorschemes
-	-- main colorscheme
-	use 'bluz71/vim-nightfly-guicolors'
-	use 'ErichDonGubler/vim-sublime-monokai'
-	use 'tomasiser/vim-code-dark'
-	use 'patstockwell/vim-monokai-tasty'
-	use 'crusoexia/vim-monokai'
-	use 'EdenEast/nightfox.nvim'
-	use 'junegunn/seoul256.vim'
+	-- Plug 'tpope/vim-eunuch'
+	-- Plug 'szw/vim-maximizer'
+	-- Plug 'jesseleite/vim-agriculture'
+	-- Plug 'tpope/vim-fugitive'
+	-- Plug 'tpope/vim-surround'
+	-- Plug 'tpope/vim-commentary'
+	-- Plug 'uiiaoo/java-syntax.vim'
+	-- Plug 'pangloss/vim-javascript'
+	-- Plug 'sheerun/vim-polyglot'
+	-- Plug 'junegunn/rainbow_parentheses.vim'
+	-- Plug 'ryanoasis/vim-devicons'
+	-- Plug 'hoob3rt/lualine.nvim'
 
-	-- vimdiff colorscheme
-	use 'nanotech/jellybeans.vim'
 end)

@@ -9,14 +9,14 @@ local function nkeymap(key, map)
 end
 
 -- general
-keymap('n', '<leader>q', ':q<CR>', opts)
-keymap('n', '<leader>w', ':w<CR>', opts)
+nkeymap('<leader>q', ':q<CR>')
+nkeymap('<leader>w', ':w<CR>')
 
-keymap('n', 'Y', 'y$', opts)
+nkeymap('Y', 'y$')
 
-keymap('n', 'n', 'nzzzv', opts)
-keymap('n', 'N', 'Nzzzv', opts)
-keymap('n', 'J', 'mxJ`z', opts)
+nkeymap('n', 'nzzzv')
+nkeymap('N', 'Nzzzv')
+nkeymap('J', 'mxJ`z')
 
 keymap('i', ',', ',<c-g>u', opts)
 keymap('i', '.', '.<c-g>u', opts)
@@ -29,22 +29,25 @@ keymap('i', '<C-j>', "<esc>:m .+1<Cr>==", opts)
 keymap('i', '<C-k>', "<esc>:m .-2<Cr>==", opts)
 
 -- arrow key remaps
-keymap('n', '<Up>', '<Nop>', opts)
-keymap('n', '<Down>', '<Nop>', opts)
-keymap('n', '<Left>', '<Nop>', opts)
-keymap('n', '<Right>', '<Nop>', opts)
+nkeymap('<Up>', '<Nop>')
+nkeymap('<Down>', '<Nop>')
+nkeymap('<Left>', '<Nop>')
+nkeymap('<Right>', '<Nop>')
 
 keymap('i', '<Up>', '<Nop>', opts)
 keymap('i', '<Down>', '<Nop>', opts)
 keymap('i', '<Left>', '<Nop>', opts)
 keymap('i', '<Right>', '<Nop>', opts)
 
+-- buffers
+nkeymap('<leader>ls', ':Buffers<CR>')
+
 -- nerdtree
-keymap('n', '<C-n>', ':NERDTreeToggle<CR>', opts)
+nkeymap('<C-n>', ':NERDTreeToggle<CR>')
 
 -- telescope
-keymap('n', '<C-p>', ':Telescope find_files<CR>', opts)
-keymap('n', '<C-f>', ':Telescope live_grep<CR>', opts)
+nkeymap('<C-p>', ':Telescope find_files<CR>')
+nkeymap('<C-f>', ':Telescope live_grep<CR>')
 
 -- lsp
 nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')
