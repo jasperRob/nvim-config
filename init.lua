@@ -2,11 +2,15 @@
 -- neovim config init
 ----
 require('user.plugins')
-require('user.options')
-require('user.keymaps')
 
+require('user.telescope')
 require('user.nerdtree')
 require('user.treesitter')
 
 require('user.lsp')
 require('user.completion')
+
+require('user.autopairs')
+
+require('user.options')
+require('user.keymaps')

@@ -57,6 +57,10 @@ require('packer').startup(function()
 	  },
 	}
 
+	---- snippets
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
+
 	---- colorschemes
 	-- main colorscheme
 	use 'bluz71/vim-nightfly-guicolors'
@@ -70,16 +74,12 @@ require('packer').startup(function()
 	-- vimdiff colorscheme
 	use 'nanotech/jellybeans.vim'
 
-	---- snippets
-	-- use 'rafamadriz/friendly-snippets'
-	-- use 'L3MON4D3/LuaSnip'
-	-- use 'saadparwaiz1/cmp_luasnip'
-
 	---- display indentation lines
 	-- use 'lukas-reineke/indent-blankline.nvim'
 
 	---- helpers / misc plugins
-	use 'jiangmiao/auto-pairs'
+	-- use 'jiangmiao/auto-pairs'
+	use 'windwp/nvim-autopairs'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
 

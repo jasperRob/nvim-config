@@ -39,15 +39,15 @@ keymap('i', '<Down>', '<Nop>', opts)
 keymap('i', '<Left>', '<Nop>', opts)
 keymap('i', '<Right>', '<Nop>', opts)
 
--- buffers
-nkeymap('<leader>ls', ':Buffers<CR>')
-
 -- nerdtree
 nkeymap('<C-n>', ':NERDTreeToggle<CR>')
 
 -- telescope
 nkeymap('<C-p>', ':Telescope find_files<CR>')
 nkeymap('<C-f>', ':Telescope live_grep<CR>')
+nkeymap('<leader>ls', ':Telescope buffers<CR>')
+nkeymap('<leader>h', ':Telescope help_tags<CR>')
+
 
 -- lsp
 nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')

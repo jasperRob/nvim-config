@@ -1,8 +1,3 @@
-print("In Options")
--- map leader
-vim.g.mapleader = ','
--- vim commands
---
 -- main neovim settings
 vim.opt.relativenumber = true
 vim.opt.swapfile = false
