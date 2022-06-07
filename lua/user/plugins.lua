@@ -28,11 +28,6 @@ require('packer').startup(function()
 		},
 	}
 
-	-- fzf native (telescope extension)
-	-- use {
-	-- 	'nvim-telescope/telescope-fzf-native.nvim',
-	-- 	run = 'make',
-	-- }
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
@@ -61,6 +56,21 @@ require('packer').startup(function()
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 
+	-- git
+	-- use 'lewis6991/gitsigns.nvim'
+	use 'tpope/vim-fugitive'
+
+	---- display indentation lines
+	-- use 'lukas-reineke/indent-blankline.nvim'
+
+	---- helpers / misc plugins
+	use 'windwp/nvim-autopairs'
+	use 'tpope/vim-commentary'
+	use 'tpope/vim-surround'
+
+	-- Plug 'szw/vim-maximizer'
+	-- use 'junegunn/rainbow_parentheses.vim'
+
 	---- colorschemes
 	-- main colorscheme
 	use 'bluz71/vim-nightfly-guicolors'
@@ -69,29 +79,16 @@ require('packer').startup(function()
 	use 'patstockwell/vim-monokai-tasty'
 	use 'crusoexia/vim-monokai'
 	use 'EdenEast/nightfox.nvim'
-	use 'junegunn/seoul256.vim'
+	-- use 'junegunn/seoul256.vim'
+	use 'drewtempelmeyer/palenight.vim'
 
 	-- vimdiff colorscheme
 	use 'nanotech/jellybeans.vim'
-
-	---- display indentation lines
-	-- use 'lukas-reineke/indent-blankline.nvim'
-
-	---- helpers / misc plugins
-	-- use 'jiangmiao/auto-pairs'
-	use 'windwp/nvim-autopairs'
-	use 'tpope/vim-commentary'
-	use 'tpope/vim-surround'
-
-	-- Plug 'tpope/vim-eunuch'
-	-- Plug 'szw/vim-maximizer'
-	-- Plug 'jesseleite/vim-agriculture'
-	-- Plug 'tpope/vim-fugitive'
-	-- Plug 'uiiaoo/java-syntax.vim'
-	-- Plug 'pangloss/vim-javascript'
-	-- Plug 'sheerun/vim-polyglot'
-	-- Plug 'junegunn/rainbow_parentheses.vim'
-	-- Plug 'ryanoasis/vim-devicons'
-	-- Plug 'hoob3rt/lualine.nvim'
-
 end)
+
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])

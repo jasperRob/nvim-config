@@ -6,6 +6,7 @@ require('user.plugins')
 require('user.telescope')
 require('user.nerdtree')
 require('user.treesitter')
+require('user.git')
 
 require('user.lsp')
 require('user.completion')

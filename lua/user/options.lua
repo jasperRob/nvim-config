@@ -10,4 +10,5 @@ vim.opt.tabstop = 4
 
 -- set colorscheme
 vim.opt.termguicolors = true
-vim.cmd [[colorscheme monokai]]
+vim.opt.background = 'dark'
+vim.cmd [[colorscheme palenight]]
