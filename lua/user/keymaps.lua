@@ -68,7 +68,7 @@ ikeymap('<Left>', '<Nop>')
 ikeymap('<Right>', '<Nop>')
 
 -- nerdtree
-nkeymap('<C-n>', ':NERDTreeToggle<CR>')
+nkeymap('<C-n>', ':lua _G.Toggle_NERDTree()<CR>')
 
 -- telescope
 nkeymap('<C-p>', ':Telescope find_files<CR>')
