@@ -37,8 +37,9 @@ require('packer').startup(function()
 	use 'nvim-treesitter/nvim-treesitter'
 
 	---- lsp
-	use 'neovim/nvim-lspconfig'
-	use 'williamboman/nvim-lsp-installer'
+	-- use 'neovim/nvim-lspconfig'
+	-- use 'williamboman/nvim-lsp-installer'
+	use 'mfussenegger/nvim-jdtls'
 	-- Plug 'puremourning/vimspector'
 
 	---- completion
@@ -56,12 +57,20 @@ require('packer').startup(function()
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 
+	-- jenkinsfile syntax
+	use {
+		'ckipp01/nvim-jenkinsfile-linter',
+		requires = {
+			"nvim-lua/plenary.nvim"
+		}
+	}
+
 	-- git
 	-- use 'lewis6991/gitsigns.nvim'
 	use 'tpope/vim-fugitive'
 
 	---- display indentation lines
-	-- use 'lukas-reineke/indent-blankline.nvim'
+	use 'lukas-reineke/indent-blankline.nvim'
 
 	---- helpers / misc plugins
 	use 'windwp/nvim-autopairs'

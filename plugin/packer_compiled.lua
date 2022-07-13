@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["jellybeans.vim"] = {
     loaded = true,
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
@@ -134,15 +139,15 @@ _G.packer_plugins = {
     path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-lsp-installer"] = {
+  ["nvim-jdtls"] = {
     loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
-  ["nvim-lspconfig"] = {
+  ["nvim-jenkinsfile-linter"] = {
     loaded = true,
-    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
+    path = "/Users/jasper/.local/share/nvim/site/pack/packer/start/nvim-jenkinsfile-linter",
+    url = "https://github.com/ckipp01/nvim-jenkinsfile-linter"
   },
   ["nvim-treesitter"] = {
     loaded = true,

@@ -14,4 +14,5 @@ require('user.completion')
 require('user.autopairs')
 
 require('user.options')
+require('user.functions')
 require('user.keymaps')
