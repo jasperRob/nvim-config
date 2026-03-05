@@ -85,6 +85,15 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Need to override markdown for some reason
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+  end,
+})
+
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
@@ -98,7 +107,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save buffer' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>xd', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic float' })
 
 -- Open vertical split
 vim.keymap.set('n', '<leader>v', '<cmd>vsplit<CR>', { desc = 'Open vertical split' })
@@ -142,7 +152,7 @@ vim.keymap.set('n', '<leader>nd', function()
 end, { desc = 'Open Daily Note' })
 vim.keymap.set('n', '<leader>nn', function()
   local current_file = vim.fn.expand '%:p'
-  local result = vim.fn.system({ 'next-note', '--print', current_file })
+  local result = vim.fn.system { 'next-note', '--print', current_file }
   local next_file = vim.trim(result)
   if next_file ~= '' and not next_file:match '^No next' and not next_file:match '^Error' and not next_file:match '^Usage' then
     vim.cmd('edit ' .. vim.fn.fnameescape(next_file))
@@ -152,7 +162,7 @@ vim.keymap.set('n', '<leader>nn', function()
 end, { desc = 'Open Next Note' })
 vim.keymap.set('n', '<leader>np', function()
   local current_file = vim.fn.expand '%:p'
-  local result = vim.fn.system({ 'prev-note', '--print', current_file })
+  local result = vim.fn.system { 'prev-note', '--print', current_file }
   local prev_file = vim.trim(result)
   if prev_file ~= '' and not prev_file:match '^No prev' and not prev_file:match '^Error' and not prev_file:match '^Usage' then
     vim.cmd('edit ' .. vim.fn.fnameescape(prev_file))
@@ -161,7 +171,19 @@ vim.keymap.set('n', '<leader>np', function()
   end
 end, { desc = 'Open Prev Note' })
 vim.keymap.set('n', '<leader>nu', ':!push-notes<CR>', { desc = 'Upload to Notes Repo' })
-
+
+-- Yank full file path to system clipboard
+vim.keymap.set({ 'n', 'v' }, '<leader>yf', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+  vim.notify('Copied full path: ' .. vim.fn.expand '%:p', vim.log.levels.INFO, { title = 'File Path' })
+end, { desc = 'Copy full file path' })
+
+-- Yank relative file path to system clipboard
+vim.keymap.set({ 'n', 'v' }, '<leader>yr', function()
+  vim.fn.setreg('+', vim.fn.expand '%:.')
+  vim.notify('Copied relative path: ' .. vim.fn.expand '%:.', vim.log.levels.INFO, { title = 'File Path' })
+end, { desc = 'Copy relative file path' })
+
 -- Yanking method name for Pytest
 local function yank_pytest(debug)
   local node = vim.treesitter.get_node()
