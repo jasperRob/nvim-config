@@ -1,7 +1,10 @@
--- Set <space> as the leader key
+--b Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Format on save toggle state (toggled with <leader>tf)
+vim.g.format_on_save_enabled = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
