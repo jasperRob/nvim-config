@@ -223,40 +223,111 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- [[ Install `lazy.nvim` plugin manager ]]
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
-  end
-end
+-- [[ Plugins ]]
+-- vim.pack.add() must be called in init.lua so plugins are available
+-- before plugin/*.lua config files are sourced by Neovim.
 
----@type vim.Option
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
+-- Build hooks for post-install/update steps (must be before vim.pack.add)
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    local name = ev.data.spec.name
+    local kind = ev.data.kind
+    local path = ev.data.path
 
--- [[ Configure and install plugins ]]
-require('lazy').setup({
-  -- Import all plugin configurations from the plugins directory
-  { import = 'plugins' },
-}, {
-  ui = {
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
+    if kind ~= 'install' and kind ~= 'update' then
+      return
+    end
+
+    if name == 'LuaSnip' then
+      if vim.fn.has 'win32' == 0 and vim.fn.executable 'make' == 1 then
+        vim.system({ 'make', 'install_jsregexp' }, { cwd = path })
+      end
+    end
+
+    if name == 'telescope-fzf-native.nvim' then
+      if vim.fn.executable 'make' == 1 then
+        vim.system({ 'make' }, { cwd = path })
+      end
+    end
+
+    if name == 'nvim-treesitter' then
+      if not ev.data.active then
+        vim.cmd.packadd 'nvim-treesitter'
+      end
+      vim.schedule(function()
+        vim.cmd 'TSUpdate'
+      end)
+    end
+  end,
 })
+
+vim.pack.add {
+  -- colorscheme
+  'https://github.com/navarasu/onedark.nvim',
+
+  -- ui
+  'https://github.com/echasnovski/mini.nvim',
+  'https://github.com/folke/which-key.nvim',
+  'https://github.com/lukas-reineke/indent-blankline.nvim',
+  'https://github.com/nvim-tree/nvim-web-devicons',
+
+  -- treesitter
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+
+  -- telescope
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
+  'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+  'https://github.com/nvim-telescope/telescope.nvim',
+
+  -- completion
+  { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range '2.*' },
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.*' },
+
+  -- lsp
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
+  'https://github.com/j-hui/fidget.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/folke/lazydev.nvim',
+
+  -- debug
+  'https://github.com/nvim-neotest/nvim-nio',
+  'https://github.com/rcarriga/nvim-dap-ui',
+  'https://github.com/jay-babu/mason-nvim-dap.nvim',
+  'https://github.com/leoluz/nvim-dap-go',
+  'https://github.com/mfussenegger/nvim-dap-python',
+  'https://github.com/mfussenegger/nvim-dap',
+
+  -- formatting / linting
+  'https://github.com/stevearc/conform.nvim',
+  'https://github.com/mfussenegger/nvim-lint',
+
+  -- git
+  'https://github.com/lewis6991/gitsigns.nvim',
+  'https://github.com/sindrets/diffview.nvim',
+
+  -- navigation / editing
+  'https://github.com/folke/flash.nvim',
+  { src = 'https://github.com/kylechui/nvim-surround', version = vim.version.range '^3.0.0' },
+  'https://github.com/christoomey/vim-tmux-navigator',
+
+  -- file management
+  'https://github.com/stevearc/oil.nvim',
+
+  -- utilities
+  'https://github.com/windwp/nvim-autopairs',
+  'https://github.com/NMAC427/guess-indent.nvim',
+  'https://github.com/mbbill/undotree',
+  'https://github.com/hedyhli/outline.nvim',
+  'https://github.com/folke/todo-comments.nvim',
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+
+  -- claude code
+  'https://github.com/folke/snacks.nvim',
+  'https://github.com/coder/claudecode.nvim',
+
+  -- logging
+  'https://github.com/Goose97/timber.nvim',
+}
