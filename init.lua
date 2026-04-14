@@ -187,6 +187,16 @@ vim.keymap.set({ 'n', 'v' }, '<leader>yr', function()
   vim.notify('Copied relative path: ' .. vim.fn.expand '%:.', vim.log.levels.INFO, { title = 'File Path' })
 end, { desc = 'Copy relative file path' })
 
+-- Yank Claude Code line reference (@path#Lstart-end) for highlighted lines
+vim.keymap.set('v', '<leader>yc', function()
+  local start_line = vim.fn.line "'<"
+  local end_line = vim.fn.line "'>"
+  local path = vim.fn.expand '%:.'
+  local ref = '@' .. path .. '#L' .. start_line .. '-' .. end_line
+  vim.fn.setreg('+', ref)
+  vim.notify('Copied: ' .. ref, vim.log.levels.INFO, { title = 'Claude Code Ref' })
+end, { desc = 'Copy Claude Code line reference' })
+
 -- Yanking method name for Pytest
 local function yank_pytest(debug)
   local node = vim.treesitter.get_node()
