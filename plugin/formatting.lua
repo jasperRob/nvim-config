@@ -1,3 +1,24 @@
+local black_roots = {}
+
+local function uses_black(ctx)
+  local root = vim.fs.root(ctx.buf, { 'pyproject.toml', 'setup.cfg', '.git' })
+  if not root then
+    return false
+  end
+  if black_roots[root] ~= nil then
+    return black_roots[root]
+  end
+
+  local found = false
+  local pyproject = root .. '/pyproject.toml'
+  if vim.uv.fs_stat(pyproject) then
+    local text = table.concat(vim.fn.readfile(pyproject), '\n')
+    found = text:find '%[tool%.black%]' ~= nil and text:find '%[tool%.ruff%.format%]' == nil
+  end
+  black_roots[root] = found
+  return found
+end
+
 require('conform').setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
@@ -20,6 +41,16 @@ require('conform').setup {
         return {}
       end,
     },
+    isort = {
+      condition = function(_, ctx)
+        return uses_black(ctx)
+      end,
+    },
+    black = {
+      condition = function(_, ctx)
+        return uses_black(ctx)
+      end,
+    },
   },
   formatters_by_ft = {
     lua = { 'stylua' },
@@ -28,6 +59,7 @@ require('conform').setup {
     javascriptreact = { 'prettier' },
     typescriptreact = { 'prettier' },
     markdown = { 'prettier' },
+    python = { 'isort', 'black', 'ruff_organize_imports', 'ruff_format' },
   },
 }
 

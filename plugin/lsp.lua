@@ -85,7 +85,9 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local servers = {
   pyright = {},
+  ruff = {},
   vtsls = {},
+  rust_analyzer = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -105,6 +107,7 @@ require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 require('mason-lspconfig').setup {
   ensure_installed = {},
   automatic_installation = false,
+  automatic_enable = true,
   handlers = {
     function(server_name)
       local server = servers[server_name] or {}

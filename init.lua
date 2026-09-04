@@ -1,10 +1,14 @@
---b Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Format on save toggle state (toggled with <leader>tf)
 vim.g.format_on_save_enabled = true
+
+-- Filetype detection for formats not built into Neovim
+vim.filetype.add {
+  extension = { json5 = 'json5' },
+}
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -108,6 +112,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Save current buffer
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save buffer' })
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Close buffer' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -131,12 +136,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Also enable split navigation in terminal mode
--- vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 -- Move selected lines up/down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -144,10 +143,6 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 -- Remain selected after indentation
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
-
--- Centre on next search item
-vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
-vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 
 -- Notes
 vim.keymap.set('n', '<leader>nd', function()
@@ -176,13 +171,13 @@ end, { desc = 'Open Prev Note' })
 vim.keymap.set('n', '<leader>nu', ':!push-notes<CR>', { desc = 'Upload to Notes Repo' })
 
 -- Yank full file path to system clipboard
-vim.keymap.set({ 'n', 'v' }, '<leader>yf', function()
+vim.keymap.set('n', '<leader>yf', function()
   vim.fn.setreg('+', vim.fn.expand '%:p')
   vim.notify('Copied full path: ' .. vim.fn.expand '%:p', vim.log.levels.INFO, { title = 'File Path' })
 end, { desc = 'Copy full file path' })
 
 -- Yank relative file path to system clipboard
-vim.keymap.set({ 'n', 'v' }, '<leader>yr', function()
+vim.keymap.set('n', '<leader>yr', function()
   vim.fn.setreg('+', vim.fn.expand '%:.')
   vim.notify('Copied relative path: ' .. vim.fn.expand '%:.', vim.log.levels.INFO, { title = 'File Path' })
 end, { desc = 'Copy relative file path' })
@@ -320,7 +315,6 @@ vim.pack.add {
 
   -- navigation / editing
   'https://github.com/folke/flash.nvim',
-  { src = 'https://github.com/kylechui/nvim-surround', version = vim.version.range '^3.0.0' },
   'https://github.com/christoomey/vim-tmux-navigator',
 
   -- file management

@@ -6,11 +6,29 @@ My Neovim config. Derived from
 
 ## Requirements
 
+### Core
+
 - Neovim 0.12+
 - [Nerd Font](https://www.nerdfonts.com/) — set in your terminal for icons
 - `git`
-- A C compiler (for `telescope-fzf-native`)
-- Optional: `ripgrep` for live grep in Telescope
+- `make` + a C compiler — required to build `telescope-fzf-native` and LuaSnip's jsregexp module
+
+### Language toolchains
+
+These are required by Mason-managed LSPs, formatters, and debuggers:
+
+| Toolchain | Used by |
+| --------- | ------- |
+| **Go** | `delve` debugger (Go DAP) |
+| **Node.js** | `vtsls` (TypeScript LSP), `prettier` formatter, `markdownlint-cli2` linter |
+| **Python** | `pyright` (Python LSP), `debugpy` (Python DAP) |
+
+Mason installs the LSP servers and debuggers automatically, but the underlying runtimes must already be present on the host.
+
+### Optional
+
+- `ripgrep` — live grep in Telescope (`<leader>sg`)
+- [Claude Code CLI](https://claude.ai/code) — required for the `claudecode.nvim` integration (`<leader>ac`)
 
 ## Installation
 

@@ -17,21 +17,25 @@ local languages = {
   'vimdoc',
   'javascript',
   'json',
+  'json5',
+  'rust',
   'python',
   'tsx',
   'typescript',
   'regex',
+  'yaml',
   'terraform',
+  'prisma',
 }
 
 vim.schedule(function()
-  local ts_install = require('nvim-treesitter.install')
-  local ts_config = require('nvim-treesitter.config')
+  local ts_install = require 'nvim-treesitter.install'
+  local ts_config = require 'nvim-treesitter.config'
 
   -- Force-install any languages whose query symlink is missing.
   -- update() only reinstalls when the parser revision changes, so it misses
   -- the case where a parser binary exists but the query symlink was deleted.
-  local queries_dir = ts_config.get_install_dir('queries')
+  local queries_dir = ts_config.get_install_dir 'queries'
   local missing = vim.tbl_filter(function(lang)
     return vim.uv.fs_stat(vim.fs.joinpath(queries_dir, lang)) == nil
   end, languages)
